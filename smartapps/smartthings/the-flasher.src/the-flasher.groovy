@@ -35,7 +35,7 @@ preferences {
 	}
 	section("Then flash..."){
 		input "switches", "capability.switch", title: "These lights", multiple: true
-		input "numFlashes", "number", title: "This number of times (default 3)", required: false
+		input "numFlashes", "number", title: "This number of times (default 5)", required: false
 	}
 	section("Time settings in milliseconds (optional)..."){
 		input "onFor", "number", title: "On for (default 1000)", required: false
@@ -107,7 +107,7 @@ private flashLights() {
 	def doFlash = true
 	def onFor = onFor ?: 1000
 	def offFor = offFor ?: 1000
-	def numFlashes = numFlashes ?: 3
+	def numFlashes = numFlashes ?: 5
 
 	log.debug "LAST ACTIVATED IS: ${state.lastActivated}"
 	if (state.lastActivated) {
@@ -147,4 +147,3 @@ private flashLights() {
 		}
 	}
 }
-
